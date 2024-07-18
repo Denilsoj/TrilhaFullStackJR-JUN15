@@ -1,6 +1,6 @@
 import app from './app';
 
-const port = 3333;
+const port = 3000;
 
 app.on('done', () => {
   app.listen(port, () => {

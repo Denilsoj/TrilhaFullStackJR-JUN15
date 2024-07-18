@@ -10,8 +10,11 @@ const userSchema = new Schema({
     type: String,
     unique: true,
     require: true,
-    validate: (value: string): boolean => {
-      return validator.isEmail(value);
+    validate: {
+      validator: (value: string): boolean => {
+        return validator.isEmail(value);
+      },
+      message: 'E-mail inválido',
     },
   },
   passwordHash: {
