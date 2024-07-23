@@ -18,16 +18,16 @@ class App {
     this.connection();
   }
 
-  middleware(): void {
+  private middleware(): void {
     this.app.use(express.json());
   }
 
-  routes(): void {
+  private routes(): void {
     this.app.use('/users/', userRouter);
     this.app.use('/token/', tokenRouter);
     this.app.use('/project/', projectRouter);
   }
-  async connection(): Promise<void> {
+  private async connection(): Promise<void> {
     await mongoose.connect(`${process.env.database_url}`);
     console.log('conect database');
     this.app.emit('done');
