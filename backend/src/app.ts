@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 
 import userRouter from './routes/userRoutes';
 import tokenRouter from './routes/tokenRoute';
+import projectRouter from './routes/projectRoutes';
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ class App {
   routes(): void {
     this.app.use('/users/', userRouter);
     this.app.use('/token/', tokenRouter);
+    this.app.use('/project/', projectRouter);
   }
   async connection(): Promise<void> {
     await mongoose.connect(`${process.env.database_url}`);
