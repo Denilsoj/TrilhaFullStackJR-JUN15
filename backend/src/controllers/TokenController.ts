@@ -26,13 +26,13 @@ class TokenController {
       res.status(401).json([{ errors: 'Usário não encontrado' }]);
     }
 
-    const { id, email, passwordHash } = user;
+    const { id, name, email, passwordHash } = user;
 
     if (!(await compareHash(password, passwordHash))) {
       res.status(401).json('senha inválida');
     }
 
-    const token = await jwt({ id, email });
+    const token = await jwt({ id, name, email });
 
     res.status(200).json({ token });
   }
