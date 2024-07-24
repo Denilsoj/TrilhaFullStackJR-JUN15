@@ -17,7 +17,7 @@ const ProjectSchema = new Schema({
   hightlights: {
     type: Boolean,
     require: true,
-    default: true,
+    default: false,
   },
 });
 
